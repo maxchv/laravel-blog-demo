@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Route::get('/', function () {
+//    return view('index');
+//});
+Route::view('/', 'index');
+
+Route::post('/post', function() {
+   return 'Post request ' . $_POST['test'];
 });
+
+Route::get('greeting/{name?}', function ($name='Guest') {
+    return "Hello $name";
+});
+
+Route::get('post/{id?}', function ($id) {
+    return "Return post with id: $id";
+})->where(['id' => '\\d+'])->name('post.show');
+
+//Route::match(['get', 'post'], function() {
+//
+//});
 
 
