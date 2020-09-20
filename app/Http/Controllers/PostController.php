@@ -8,7 +8,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view("index", ['title' => 'Post controller']);
+        $posts = [];
+        return view("index", ['title' => 'Post controller', 'posts'=>$posts]);
     }
 
     public function show($id)
