@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('index');
 //});
-Route::view('/', 'index');
+//Route::view('/', 'index');
+
+
+Route::get("/", [PostController::class, 'index']);
 
 Route::post('/post', function() {
    return 'Post request ' . $_POST['test'];
